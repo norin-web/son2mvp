@@ -1,0 +1,4 @@
+/* Inter stands in for the reference site's aktiv-grotesk (Adobe Fonts,
+   not licensable here). Weights kept tight: 400 body, 500 headings/UI,
+   600 for the few places that need emphasis. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');

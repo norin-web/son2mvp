@@ -1,0 +1,299 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+
+  /* ── Core palette ───────────────────────────────────────────────
+     Sonos-style: white ground, black type, grays for structure.
+     Colour is used sparingly — accent only on primary CTAs.        */
+  --black:        #000000;
+  --ink:          #111111;   /* body copy on white */
+  --white:        #ffffff;
+  --paper:        #f2f2f2;   /* alternating section ground */
+  --paper-warm:   #f7f6f4;   /* softer alternate */
+  --gray-text:    #6b6b6b;   /* secondary copy */
+  --gray-line:    #e2e2e2;   /* hairlines on light */
+  --gray-line-dk: #262626;   /* hairlines on dark */
+  --near-black:   #0a0a0a;   /* dark sections / hero */
+
+  /* ── Brand ──────────────────────────────────────────────────────
+     Sampled from the UM monogram: the ramp runs blue → cyan → mint.
+     This is the studio's own identity and it is what keeps the site
+     from reading as a monochrome copy of the hardware brand's.      */
+  --brand-1:  #0171FC;
+  --brand-2:  #00BDFF;
+  --brand-3:  #06EAC8;
+  --brand-ink: #010919;   /* the wordmark's near-black navy */
+
+  --brand-gradient: linear-gradient(103deg, var(--brand-1) 0%, var(--brand-2) 52%, var(--brand-3) 100%);
+  --brand-gradient-soft: linear-gradient(103deg, rgba(1,113,252,.12) 0%, rgba(0,189,255,.12) 52%, rgba(6,234,200,.12) 100%);
+
+  /* The site itself stays monochrome; the logo is the only place the brand
+     ramp appears. --brand-1 is kept for focus rings, where a colour that is
+     not the text colour is what makes the ring legible. */
+  --accent:        var(--ink);
+  --accent-press:  #000000;
+  --accent-wash:   #f2f2f2;
+  --coral:         #FF7A67;  /* app's Identify tile — incidental use */
+  --amber:         #FFAA1A;  /* app's Stream tile — incidental use */
+
+  /* ── 27-column viewport grid (sonos.com) ───────────────────────
+     One column = 100/27 vw. Content spans 24 columns, leaving
+     1.5 columns of gutter each side.                              */
+  --gx:        3.7037037vw;    /* x1  — one column */
+  --gx-half:   1.8518518vw;    /* x0.5 */
+  --gutter:    5.5555555vw;    /* x1.5 — page side padding */
+  --content:   88.888888vw;    /* x24 — content width */
+  --content-max: 1600px;
+
+  /* ── Vertical rhythm ─────────────────────────────────────────── */
+  --stack-sm:  32px;
+  --stack:     56px;
+  --stack-lg:  112px;
+  --stack-xl:  168px;
+
+  /* ── Type scale — every step at line-height 1.2 ───────────────── */
+  --text-xs:    0.75rem;    /* 12 — eyebrow / meta */
+  --text-sm:    0.875rem;   /* 14 */
+  --text-base:  1rem;       /* 16 — body, buttons */
+  --text-lg:    1.125rem;   /* 18 — lead paragraphs */
+  --text-h3:    clamp(1.5rem,  2.4vw, 2rem);      /* → 32 */
+  --text-h2:    clamp(2rem,    3.6vw, 3rem);      /* → 48 */
+  --text-h1:    clamp(2.5rem,  4.2vw, 3.375rem);  /* → 54 */
+  --text-display: clamp(3rem,  6vw,   5rem);      /* hero only */
+
+  --radius:     8px;
+  --radius-pill: 80px;
+
+  /* Tailwind token contract — do not remove */
+  --background: #ffffff;
+  --foreground: #111111;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #f2f2f2;
+  --secondary-foreground: #111111;
+  --muted: #f2f2f2;
+  --muted-foreground: #6b6b6b;
+  --accent-foreground: #000000;
+  --destructive: #d92d20;
+  --destructive-foreground: #ffffff;
+  --border: #e2e2e2;
+  --input: transparent;
+  --input-background: #ffffff;
+  --switch-background: #e2e2e2;
+  --ring: #000000;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-paper-warm: var(--paper-warm);
+  --color-near-black: var(--near-black);
+  --color-gray-text: var(--gray-text);
+  --color-gray-line: var(--gray-line);
+  --color-brand: var(--accent);
+  --color-brand-press: var(--accent-press);
+  --color-coral: var(--coral);
+
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+  }
+
+  /* Headings: medium weight, sentence case, normal tracking, 1.2 leading.
+     Deliberately NOT the heavy uppercase treatment — this follows the
+     restrained grotesque voice of the hardware brand's own site. */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  h1 { font-size: var(--text-h1); }
+  h2 { font-size: var(--text-h2); }
+  h3 { font-size: var(--text-h3); }
+  h4 { font-size: var(--text-lg); }
+
+  p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  ::selection {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-1);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* ── Layout primitives ──────────────────────────────────────── */
+
+  /* Page container. On phones the 27-column gutter is too expensive, so the
+     container goes full width with a flat 24px inset; from 768px up it takes
+     24 of 27 columns and the grid gutter does the work. */
+  .u-container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+  @media (min-width: 768px) {
+    .u-container {
+      width: min(var(--content), var(--content-max));
+      padding-inline: 0;
+    }
+  }
+
+  /* Full-bleed band that still aligns its inner content to the grid */
+  .u-band {
+    padding-block: var(--stack);
+  }
+  @media (min-width: 768px) {
+    .u-band { padding-block: var(--stack-lg); }
+  }
+
+  /* Small uppercase meta label */
+  .u-eyebrow {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+  }
+
+  .u-lead {
+    font-size: var(--text-lg);
+    line-height: 1.55;
+    color: var(--gray-text);
+  }
+
+  /* ── Buttons — full pill, 16px/400, as on the reference ─────── */
+  .u-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-base);
+    font-weight: 500;
+    line-height: 1;
+    padding: 16px 32px;
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease, opacity .2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .u-btn--primary {
+    background: var(--black);
+    color: var(--white);
+  }
+  .u-btn--primary:hover { background: #2b2b2b; }
+
+  .u-btn--accent {
+    background: var(--accent);
+    color: #000;
+  }
+  .u-btn--accent:hover { background: var(--accent-press); }
+
+
+  .u-btn--outline {
+    border: 1px solid var(--black);
+    color: var(--black);
+    background: transparent;
+  }
+  .u-btn--outline:hover { background: var(--black); color: var(--white); }
+
+  .u-btn--on-dark {
+    background: var(--white);
+    color: var(--black);
+  }
+  .u-btn--on-dark:hover { background: #e6e6e6; }
+
+  .u-btn--outline-on-dark {
+    border: 1px solid rgba(255,255,255,.45);
+    color: var(--white);
+    background: transparent;
+  }
+  .u-btn--outline-on-dark:hover { background: var(--white); color: var(--black); }
+
+  /* ── Hairline rule ──────────────────────────────────────────── */
+  .u-rule { border-top: 1px solid var(--gray-line); }
+  .u-rule-dark { border-top: 1px solid var(--gray-line-dk); }
+}
+
+@layer base {
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+  .animate-accordion-down { animation: accordion-down 0.25s ease-out; }
+  .animate-accordion-up   { animation: accordion-up   0.25s ease-out; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

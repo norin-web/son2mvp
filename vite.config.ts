@@ -4,11 +4,10 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  // No custom domain yet, so GitHub Pages serves this from a subpath:
-  // https://norin-web.github.io/son2mvp/. Every image goes through the img()
-  // helper, which reads import.meta.env.BASE_URL, so both cases work.
-  // When a custom domain is attached: set this to '/' and add public/CNAME.
-  base: '/son2mvp/',
+  // Served from the root of the custom domain in public/CNAME. If the domain
+  // is ever removed and Pages falls back to norin-web.github.io/son2mvp/,
+  // this must become '/son2mvp/' or every asset 404s and the page goes blank.
+  base: '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
